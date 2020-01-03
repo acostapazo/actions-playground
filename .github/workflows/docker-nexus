@@ -1,0 +1,15 @@
+name: Publish Docker (Nexus Registry)
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: acostapazo/actions-playground
+        username: ${{ secrets.NEXUS_USERNAME }}
+        password: ${{ secrets.NEXUS_PASSWORD }}
+        registry: repo.gradiant.org:9007
+        dockerfile: Dockerfile
