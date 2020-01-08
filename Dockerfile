@@ -1,1 +1,3 @@
-FROM gorestapi:latest
+FROM jfialkowski/gorestapi:latest
+
+ENV HELLO Hello
