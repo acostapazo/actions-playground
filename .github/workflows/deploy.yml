@@ -25,6 +25,8 @@ name: Build and Deploy to GKE
 
 on:
   push:
+    paths-ignore:
+    - 'docs/**'
     branches:
     - master
 
