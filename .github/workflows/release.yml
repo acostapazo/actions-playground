@@ -1,4 +1,4 @@
-name: CI
+name: Release
 
 on:
   release:
@@ -11,6 +11,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Set env
+      run: echo ::set-env name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
+    - name: Test
+      run: |
+        echo $RELEASE_VERSION
+        echo ${{ env.RELEASE_VERSION }}
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Run a multi-line script
